@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block body %}
+<html>
+<head>
+<style>
+.prof-box {
+	width: 600px;
+	height: 370px;
+	background-color:lavender;
+	padding: 40px;
+	color:black;
+	margin:0 auto;
+	margin-top:25px;
+	text-align:center;	
+}
+</style>
+</head>
+
+<body>
+<div class= "prof-box">
+   <input type="button" class="btn btn-info btn-lg btn-block" value="SCORE" onclick="location.href = 'ranking'"><br>
+   <br><input type="button" class="btn btn-default btn-lg btn-block" value="TIME" onclick="location.href = ''"><br>
+   <br><input type="button" class="btn btn-success btn-lg btn-block" value="RETURN TO MENU" onclick="location.href = 'menu'">
+ 
+</div>
+</body>
+</html>
+
+{% endblock %}

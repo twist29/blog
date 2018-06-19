@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ 
+    Home - {{ block.super }} 
+{% endblock %}
+
+{% block body %}
+<html>
+<head>
+<style>table.comicGreen {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: 2px solid #4F7849;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.comicGreen td, table.comicGreen th {
+  border: 1px solid #4F7849;
+  padding: 3px 2px;
+}
+table.comicGreen tbody td {
+  font-size: 19px;
+  font-weight: bold;
+  color: #4F7849;
+}
+table.comicGreen tr:nth-child(even) {
+  background: #CEE0CC;
+}
+table.comicGreen thead {
+  background: #4F7849;
+  background: -moz-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+  background: -webkit-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+  background: linear-gradient(to bottom, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+  border-bottom: 1px solid #444444;
+}
+table.comicGreen thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 0px solid #D0E4F5;
+}
+table.comicGreen thead th:first-child {
+  border-left: none;
+}
+
+table.comicGreen tfoot td {
+  font-size: 21px;
+}
+</style>
+</head>
+
+
+<body>
+ {% if request.user.is_authenticated %}
+<div class="row">
+  <div class="col-md-3 col-md-offset-8">   
+<table class="comicGreen">
+<tbody>
+<tr>
+<td>Score</td>
+<td>cell2_1</td>
+</tr>
+<tr>
+<td>Global Ranking</td>
+<td>cell2_2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<p>
+<div class="container">
+<table class="comicGreen" >
+<thead>
+<tr>
+<th>LANGUAGE</th>
+<th>POINTS</th>
+<th>PHRASES</th>
+<th>PRACTICE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td>x</td>
+<td> <input type="button" class="btn btn-success" value="Study" onclick="location.href = 'phrases' "></td>
+<td> <input type="button" class="btn btn-success" value="Practice" onclick="location.href = 'test-english' "></td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>cell2_2</td>
+<td> <input type="button" class="btn btn-success" value="Study" onclick="location.href = 'phrases_kr' "></td>
+<td> <input id ="2" type="button" class="btn btn-success" value="Practice" onclick="location.href = 'test-korean'"></td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td>cell2_3</td>
+<td> <input type="button" class="btn btn-success" value="Study" onclick="location.href = 'phrases_sp' "></td>
+<td > <input type="button" class="btn btn-success" value="Practice" onclick="location.href = 'test-spanish'" ></td>
+</tr>
+<tr>
+
+
+
+<td>Turkish</td>
+<td>cell2_4</td>
+<td> <input type="button" class="btn btn-success" value="Study" onclick="location.href = 'phrases_tk' "></td>
+<td> <input type="button" class="btn btn-success" value="Practice" onclick="location.href = 'test-turkish'"></td>
+
+</tr>
+</p>
+</tbody>
+</table>
+</div>
+</body>
+{% endif %}
+</html>
+
+{% endblock %}

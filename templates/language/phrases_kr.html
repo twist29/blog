@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <meta charset="utf-8">       
+      <link href="//d35aaqx5ub95lt.cloudfront.net/css/ltr-ba9535fe.css" rel="stylesheet">
+    {% block head %}
+        <title>Base</title>
+    {% endblock %}
+<!--  -->
+  <title>Phrases</title>
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--  -->
+<div class="container">
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <b><br> <a href="{% url 'home' %}" class="navbar-brand">Language Chasers</a></br></b>
+             </div>
+   <div id="navbar" class="navbar-collapse collapse">
+                      
+              
+  <!-- Search Box -->
+          <br><form class="navbar-form navbar-left" role="search" method="GET" action="">
+              <div class="input-group">
+                <input class="form-control" type="text" name="q" placeholder="Search on blog" value="{{ request.GET.q }}" >
+                <span class="input-group-btn">
+                  <input class="btn btn-default" type="submit" value="Search">
+                </span>
+              </div>
+          </form>
+         
+            
+  <!-- Pages -->
+           <b>  <ul class="nav navbar-nav navbar-left"> 
+               {% if request.user.is_authenticated %}
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href="{% url 'home' %}">Home</a></li>
+                   <li><a href="{% url 'accounts:user-edit-profile' %}">Profile</a></li>    
+                   <li><a href="{% url 'post:create' %}">Add Post</a></li> <!-- adress: 'post' -->                                 
+                   <li><a href="{% url 'post:index' %}">Blog</a></li>
+               {% endif %}
+                
+               {% if not request.user.is_authenticated %}
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href="{% url 'post:index' %}">Blog</a></li>
+                   <li><a href="{% url 'accounts:register' %}">Register</a></li>
+                   <li><a href="{% url 'accounts:login' %}">Login</a></li>
+               {% else %}
+                
+                   <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                   <a href="{% url 'home' %}">Hi {{ request.user.get_full_name }}</a>
+               {% endif %}
+          </ul> </b>
+                                  
+   </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+          </nav>
+          {% if request.user.is_authenticated %}          
+          
+          {% endif %}
+</div> 
+</br>
+
+<!--  -->
+
+<div class="container">
+  <ul class="nav nav-pills nav-stacked">
+   <br> <li class="active"><a href="#">TOPICS</a></li>
+    <br><li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">SCHOOL <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>-Professor, can you repeat that?</li>
+        <li>-교수님, 반복하실 수 있습니까?</li>
+        <li><br></li>
+        <li>-What is the date of the exam?</li>
+        <li>-시험 날짜는 언제입니까?</li>
+        <li><br></li>
+        <li>-Professor, what is your office schedule?</li>
+        <li>-교수님, 근무 일정은 무엇입니까?</li>  
+        <li><br></li>
+        <li>-Professor, I have a question</li>
+        <li>-교수, 질문 있어요.</li>
+        <li><br></li>
+        <li>-Where is the library?</li>
+        <li>-도서관이 어디 있어요?</li>
+        <li><br></li>
+        <li>-Where is the cafeteria?</li>
+        <li>-구내 식당은 어디 있습니까?</li>                     
+      </ul>
+    </li>
+     <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">SHOPPING <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      <li><br></li>
+      	<li>-How much this costs?</li>
+        <li>-이 비용은 얼마입니까?</li>
+        <li><br></li>
+        <li>-Can you wrap this for a gift?</li>
+        <li>-이것을 선물로 포장 할 수 있습니까?</li>
+        <li><br></li>
+        <li>-What do you recommend me?</li>
+        <li>-나에게 무엇을 추천하니?</li>
+        <li><br></li>
+        <li>-How much is it in total?</li>
+        <li>-총계는 얼마입니까?</li>
+        <li><br></li>
+        <li>-Can you give me a plastic bag?</li>
+        <li>-비닐 봉지 줄 수있어?</li>    
+      </ul>
+    </li>
+     <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">STREET <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      	<li>-Where is the information center?</li>
+        <li>-정보 센터는 어디에 있습니까?</li>        
+        <li><br></li>
+        <li>-How can i get to this place?</li>
+        <li>-이 장소에 어떻게 가야합니까?</li>
+        <li><br></li>
+        <li>-Can you recommend a place to eat?</li>
+        <li>-먹을 곳을 추천 해 주시겠습니까?</li>
+        <li><br></li>
+        <li>-Is there a hostel nearby?</li>
+        <li>-근처에 호스텔이 있습니까?</li>
+        <li><br></li>
+        <li>-Where can I take this bus?</li>
+        <li>-이 버스는 어디에서 가져갈 수 있습니까?</li>
+        <li><br></li>
+        <li>-Where is this subway station?</li>
+        <li>-이 지하철역은 어디 있습니까?</li>
+        <li><br></li>
+        <li>-What is the name of this street?</li>
+        <li>-이 거리의 이름은 무엇입니까?</li>
+        <li><br></li>
+        <li>-Could you tell me how to get to the bank?</li>
+        <li>-은행에가는 법을 말해 줄래?</li>                                                
+      </ul>
+ 
+  </ul>
+</div>
+
+</body>
+</html>

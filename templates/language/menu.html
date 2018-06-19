@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<html>
+<head>
+<style>
+.prof-box {
+	width: 600px;
+	height: 370px;
+	background-color:lavender;
+	padding: 40px;
+	color:black;
+	margin:0 auto;
+	margin-top:25px;
+	text-align:center;	
+}
+</style>
+</head>
+
+<body>
+<div align="center"><h1>Menu</h1></div>
+<div class= "prof-box">
+   <input type="button" class="btn btn-info btn-lg btn-block" value="TEST" onclick="location.href = 'test'"><br>
+   <br><input type="button" class="btn btn-info btn-lg btn-block" value="TRANSLATOR" onclick="location.href = 'https://translate.google.com/'"><br>
+   <br><input type="button" class="btn btn-info btn-lg btn-block" value="PHRASES" onclick="location.href = 'phrases'">
+ 
+</div>
+</body>
+</html>
+
+{% endblock %}

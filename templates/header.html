@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <meta charset="utf-8">       
+      <link href="//d35aaqx5ub95lt.cloudfront.net/css/ltr-ba9535fe.css" rel="stylesheet">
+    {% block head %}
+        <title>Base</title>
+    {% endblock %}
+</head>
+
+<body>
+<div class="container">
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <b><br> <a href="{% url 'home' %}" class="navbar-brand">Language Chasers</a></br></b>
+             </div>
+   <div id="navbar" class="navbar-collapse collapse">
+                      
+              
+  <!-- Search Box -->
+          <br><form class="navbar-form navbar-left" role="search" method="GET" action="">
+              <div class="input-group">
+                <input class="form-control" type="text" name="q" placeholder="Search on" value="{{ request.GET.q }}" >
+                <span class="input-group-btn">
+                  <input class="btn btn-default" type="submit" value="Search">
+                </span>
+              </div>
+          </form>
+         
+            
+  <!-- Pages -->
+           <b>  <ul class="nav navbar-nav navbar-left"> 
+               {% if request.user.is_authenticated %}
+                   
+                   <li><a href="{% url 'home' %}">Home</a></li>
+                   <li><a href="{% url 'accounts:user-edit-profile' %}">Profile</a></li>    
+                   <li><a href="{% url 'post:create' %}">Add Post</a></li> <!-- adress: 'post' -->                                 
+                   <li><a href="{% url 'post:index' %}">Blog</a></li>
+               {% endif %}
+                
+               {% if not request.user.is_authenticated %}
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href=""></a></li>
+                   <li><a href="{% url 'post:index' %}">Blog</a></li>
+                   <li><a href="{% url 'accounts:register' %}">Register</a></li>
+                   <li><a href="{% url 'accounts:login' %}">Login</a></li>
+               {% else %}
+                
+                   <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                   <a href="{% url 'home' %}">Hi {{ request.user.get_full_name }}</a>
+               {% endif %}
+          </ul> </b>
+                                  
+   </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+          </nav>
+          {% if request.user.is_authenticated %}          
+          
+          {% endif %}
+</div> 
+</br>  
+</body>
+
+
+ <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>
